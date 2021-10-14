@@ -17,7 +17,6 @@ func multiply(num1 string, num2 string) string {
 		nums[i] += '0'
 	}
 
-	fmt.Println(nums)
 	for idx, val := range nums {
 		if val != '0' {
 			return string(nums[idx:])
