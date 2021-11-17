@@ -3,7 +3,7 @@
  * https://programmers.co.kr/learn/courses/30/lessons/42862
  */
 function gymSuit(n, lost, reserve) {
-  let answer = n - lost.length;
+  let answer = n;
 
   lost.sort(function (a, b) {
     return a - b;
@@ -12,19 +12,20 @@ function gymSuit(n, lost, reserve) {
     return a - b;
   });
 
-  for (let i = 0; i < lost.length; i++) {
-    for (let j = 0; j < reserve.length; j++) {
-      if (lost[i] === 1 && reserve[j] === lost[i] + 1) {
-        answer++;
-        lost.shift();
-      } else if (reserve[j] === lost[i] - 1 || reserve[j] === lost[i] + 1) {
-        answer++;
-        lost.shift();
+  const newLost = lost.filter((element) => !reserve.includes(element));
+  const newReserve = reserve.filter((element) => !lost.includes(element));
+
+  for (let i = 0; i < newReserve.length; i++) {
+    for (let j = 0; j < newLost.length; j++) {
+      if (i === 0 && newReserve[i] === newLost[j] + 1) {
+        newLost.shift();
+      } else if (newReserve[i] === newLost[j] - 1 || newReserve[i] === newLost[j] + 1) {
+        newLost.shift();
       }
     }
   }
 
-  return answer - lost.length;
+  return answer - newLost.length;
 }
 
 export default gymSuit;

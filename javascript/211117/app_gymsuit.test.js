@@ -14,6 +14,6 @@ describe(`Greedy 연습 체육복`, () => {
   });
 
   test(`case 4`, () => {
-    expect(gymSuit(9, [5, 6, 8, 1, 2], [2, 3, 1, 4, 8, 9])).toStrictEqual(2);
+    expect(gymSuit(9, [5, 6, 8, 1, 2], [2, 3, 1, 4, 8, 9])).toStrictEqual(8);
   });
 });
