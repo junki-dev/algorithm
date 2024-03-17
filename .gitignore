@@ -1,3 +1,6 @@
 real
 
 .vscode/
+.idea/
+
+node_modules
